@@ -17,20 +17,15 @@ app.use(cookieParser()); // to access cookies from frontend
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/tasks", taskRouter);
 
-// app.use(
-//   cors({
-//     origin: [process.env.FRONTEND_URL],
-//     methods: ["GET", "POST", "PUT", "DELETE"],
-//     credentials: true,
-//   })
-// );
+//Cors
+app.use(
+  cors({
+    origin: [process.env.FRONTEND_URL],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
-app.use(cors({
-  origin: "http://localhost:5173",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
 
 //Env Config
 config({
